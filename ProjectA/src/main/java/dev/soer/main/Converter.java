@@ -16,28 +16,33 @@ public class Converter {
 					System.out.println("Enter number of cups: ");
 					int cups = sc.nextInt();
 					int teaspoons = cupsToTeaspoons(cups);
-					System.out.println(cups + " cups is " + teaspoons + " teaspoons");
+					System.out.println(cups + " cup(s) is " + teaspoons + " teaspoons");
 					break;
 				}
 				case 2: {
 					System.out.println("Enter number of miles: ");
 					int miles = sc.nextInt();
 					double kilometers = milesToKilometers(miles);
-					System.out.println(miles+ " miles is " + kilometers + " kilometers");
+					System.out.println(miles+ " mile(s) is " + kilometers + " kilometers");
 					break;
 				}
 				case 3: {
 					System.out.println("Enter number of gallons(US)s: ");
 					int usGallons = sc.nextInt();
 					double imperialGallons = usGallonsToImperial(usGallons);
-					System.out.println(usGallons + " US gallons is " + imperialGallons + " imperiald gallons");
+					System.out.println(usGallons + " US gallon(s) is " + imperialGallons + " imperiald gallons");
+					break;
+				}
+				case 4: {
 					break;
 				}
 				default: {
-					
+					System.out.println("Please enter a correct number from the menu...");
 				}
 			}
+			
 		}
+		sc.close();
 	}
 	public static void menu() {
 		System.out.println("Please select an option:");
