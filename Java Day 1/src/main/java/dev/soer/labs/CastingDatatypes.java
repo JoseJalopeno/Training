@@ -5,7 +5,7 @@ public class CastingDatatypes {
 	public static void main(String[] args) {
 
        //initial values
-       int i = 200;
+       int i = 203;
        //cast to a short
        short s = (short)i;
        System.out.println(s);
