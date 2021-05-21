@@ -1,5 +1,10 @@
 package dev.soer.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dev.soer.exceptions.PlanetHasNoMoonsException;
+
 public class Planet {
 
 	// static variable - specific to the class - same for every instance of the class
@@ -11,6 +16,7 @@ public class Planet {
 	private double mass;
 	private double radius;
 	private boolean atmosphere;
+	private List<Moon> moons;
 	
 	public Planet() {
 		super();
@@ -22,6 +28,7 @@ public class Planet {
 		this.mass = mass;
 		this.radius = radius;
 		this.atmosphere = atmosphere;
+		this.moons = new ArrayList<Moon>();
 	}
 
 	// getters and setters
@@ -63,6 +70,28 @@ public class Planet {
 		this.atmosphere = atmosphere;
 	}
 	
+	public List<Moon> getMoons() throws PlanetHasNoMoonsException {
+		if(this.moons == null) {
+			throw new PlanetHasNoMoonsException("This planet has no moons");
+		}
+		else {
+			return this.moons;
+		}
+	}
+	
+	public void addMoon(String moonName, double mass, double radius) {
+		Moon newMoon = new Moon(moonName, mass, radius);
+		this.moons.add(newMoon);
+	}
+	
+	public void removeMoon(String moonName) {
+		for(Moon m : moons) {
+			if(m.getName().equals(moonName)) {
+				this.moons.remove(m);
+			}
+		}
+	}
+	
 	// methods
 	public double calculateSurfaceGravity() {
 		return (this.mass * G) / (Math.pow(this.radius, 2)); // math
@@ -70,8 +99,8 @@ public class Planet {
 
 	@Override
 	public String toString() {
-		return "Planet [name=" + name + ", mass=" + mass + ", radius=" + radius + ", atmosphere=" + atmosphere + "]";
+		return "Planet [name=" + name + ", mass=" + mass + ", radius=" + radius + ", atmosphere=" + atmosphere
+				+ ", moons=" + moons + "]";
 	}
-	
 	
 }
