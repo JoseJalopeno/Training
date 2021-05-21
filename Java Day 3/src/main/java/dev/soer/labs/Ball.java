@@ -14,7 +14,7 @@ public class Ball {
 		
 		b1.size = "big"; // set b1 size to "big"
 		b1.color = "red"; // set b1 color to "red"
-		b2.size = "small";
+		b2.size = "big";
 		b2.color = "blue";
 		
 		b1.bounce();
