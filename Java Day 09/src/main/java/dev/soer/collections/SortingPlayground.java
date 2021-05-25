@@ -23,7 +23,6 @@ public class SortingPlayground {
 	public static void main(String[] args) {
 		//we have an Arrays class
 		int[] arr = {6,4,2,55,12,5,3,44,55,0};
-		Integer[] arr2 = {6,4,2,55,12,5,3,44,55,0};
 		
 		System.out.println("Before: ");
 		for(int i : arr) {
@@ -91,7 +90,7 @@ public class SortingPlayground {
 		}
 		
 		Iterator it = treeMap.entrySet().iterator();
-		System.out.println("Other way: ");
+		System.out.println("\nOther way: ");
 		while(it.hasNext()) {
 			Map.Entry<Integer, String> entry = (Map.Entry) it.next();
 			System.out.println(entry.getKey() + " -> " + entry.getValue());
@@ -107,6 +106,8 @@ public class SortingPlayground {
 		uMap.put(new User("Mary", 32), 56565);
 		// lambda
 		uMap.forEach((user, num) -> System.out.println(user + " -> " + num));
+		
+//		Collections col = new Collections(); // the collections class' constructor is private so we cannot instantiate an instance of the class
 	}
 
 }
