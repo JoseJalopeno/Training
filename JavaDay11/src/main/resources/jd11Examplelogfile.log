@@ -1,0 +1,7 @@
+INFO  | 2021-05-26 11:17:00 | [main] logging.LoggerPlayground (LoggerPlayground.java:6) - Program Started.
+INFO  | 2021-05-26 11:20:01 | [main] logging.LoggerPlayground (LoggerPlayground.java:6) - Program Started.
+WARN  | 2021-05-26 11:20:01 | [main] logging.LoggerPlayground (LoggerPlayground.java:9) - Variable 'num' is not used.
+INFO  | 2021-05-26 11:21:20 | [main] logging.LoggerPlayground (LoggerPlayground.java:6) - Program Started.
+WARN  | 2021-05-26 11:21:20 | [main] logging.LoggerPlayground (LoggerPlayground.java:9) - Variable 'num' is not used.
+INFO  | 2021-05-26 11:21:20 | [main] logging.LoggerPlayground (LoggerPlayground.java:16) - Info Level
+WARN  | 2021-05-26 11:24:40 | [main] logging.LoggerPlayground (LoggerPlayground.java:9) - Variable 'num' is not used.
