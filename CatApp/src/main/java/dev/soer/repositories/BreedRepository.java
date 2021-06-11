@@ -19,12 +19,13 @@ public class BreedRepository implements GenericRepository<Breed> {
 		return MockDB.breeds.stream().filter((b) -> b.getId() == id).findFirst().orElse(null);
 	}
 
-	public void update(Breed b) {
+	public boolean update(Breed b) {
 		Integer id = MockDB.breeds.indexOf(b);
+		return false;
 	}
 
-	public void delete(Breed b) {
-		MockDB.breeds.remove(b);
+	public boolean delete(Breed b) {
+		return MockDB.breeds.remove(b);
 	}
 
 	public List<Breed> getAll() {

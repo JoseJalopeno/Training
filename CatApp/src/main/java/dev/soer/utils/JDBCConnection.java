@@ -10,10 +10,6 @@ import java.lang.ClassNotFoundException;
 
 public class JDBCConnection {
 
-	/*
-	 * to be implemented next week when we go over this
-	 */
-
 	private static Connection conn = null;
 
 	// define a method to get teh connection
@@ -31,13 +27,25 @@ public class JDBCConnection {
 				String username = props.getProperty("username");
 				String password = props.getProperty("password");
 				conn = DriverManager.getConnection(url, username, password);
-				
 				return conn;
 			}
-		} catch (SQLException | IOException| ClassNotFoundException e) {
+			else {
+				return conn;
+			}
+		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		return null;
+	}
+	
+	public static void main(String[] args) {
+		
+		Connection conn = JDBCConnection.getConnection();
+		if(conn != null ) {
+			System.out.println("Connection Successful");
+		}
+		else {
+			System.out.println("Connection Unsuccessful");
+		}
 	}
 }
