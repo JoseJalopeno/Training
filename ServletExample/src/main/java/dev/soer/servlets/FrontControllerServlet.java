@@ -20,18 +20,18 @@ public class FrontControllerServlet extends HttpServlet{
 		response.getWriter().append("\n" + uri);
 		
 		// Sessions
-		HttpSession session = request.getSession();
-		System.out.println(session.getId());
+//		HttpSession session = request.getSession();
+//		System.out.println(session.getId());
 		
-		session.setAttribute("currentUser", "{'firstname':'Joey', 'lastName':'Soer', 'age':1234}");
-		System.out.println(session.getAttribute("currentUser"));
-		session.setMaxInactiveInterval(180);
+//		session.setAttribute("currentUser", "{'firstname':'Joey', 'lastName':'Soer', 'age':1234}");
+//		System.out.println(session.getAttribute("currentUser"));
+//		session.setMaxInactiveInterval(180);
 		//session.invalidate();
 		
 		switch(uri) {
 			case "/ServletExample/Test": {
 				response.getWriter().append("\nTest Worked");
-				response.getWriter().append("\n" + session.getAttribute("currentUser"));
+				//response.getWriter().append("\n" + session.getAttribute("currentUser"));
 				break;
 			}
 			case "/ServletExample/googleredirect": {
@@ -42,6 +42,12 @@ public class FrontControllerServlet extends HttpServlet{
 				response.sendRedirect("/ServletExample/BeanServlet");
 				break;
 			}	
+			case "/ServletExample/employee": {
+				response.sendRedirect("/ServletExample/EmployeeServlet");
+			}
+			case "/ServletExample/insert": {
+				response.sendRedirect("/ServletExample/insert.html");
+			}
 			default: {
 				response.sendError(418, "Busy eating cookies. Come back later.");
 				break;

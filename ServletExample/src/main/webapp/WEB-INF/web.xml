@@ -4,6 +4,12 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
+		<servlet-name>FrontController</servlet-name>
+		<servlet-class>dev.soer.servlets.FrontControllerServlet</servlet-class>
+	</servlet>
+	
 	<servlet>
 		<servlet-name>Hello</servlet-name>
 		<servlet-class>dev.soer.servlets.HelloServlet</servlet-class>
@@ -15,8 +21,8 @@
 	</servlet>
 
 	<servlet>
-		<servlet-name>FrontController</servlet-name>
-		<servlet-class>dev.soer.servlets.FrontControllerServlet</servlet-class>
+		<servlet-name>Employee</servlet-name>
+		<servlet-class>dev.soer.servlets.EmployeeServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -33,6 +39,11 @@
 		<servlet-name>Bean</servlet-name>
 		<url-pattern>/bean</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet-mapping>
+		<servlet-name>Employee</servlet-name>
+		<url-pattern>/employee</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>
