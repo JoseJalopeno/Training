@@ -1,6 +1,7 @@
 package dev.soer.repositories;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import dev.soer.models.Breed;
@@ -35,7 +36,7 @@ public class CatDAO implements GenericRepository<Cat> {
 	@Override
 	public Cat getById(Integer id) {
 		try {
-			String sql = "select c.id, c.name, c.age, b.id as breed_id, b.breed from cats c left join breeds b on c.breed = b.id where c.id = ?";
+			String sql = "select c.id, c.name, c.age, b.id as breed_id, b.breed from \"public\".cats c left join breeds b on c.breed = b.id where c.id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -59,6 +60,35 @@ public class CatDAO implements GenericRepository<Cat> {
 
 	@Override
 	public List<Cat> getAll() {
+		List<Cat> cats = new ArrayList<Cat>();
+		String sql = "select c.id, c.name, c.age, b.id as breed_id, b.breed from cats c left join breeds b on c.breed = b.id";
+		
+		try {
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				Cat c = new Cat();
+				c.setId(rs.getInt("id"));
+				c.setName(rs.getString("name"));
+				c.setAge(rs.getInt("age"));
+				
+				Breed b = new Breed();
+				b.setId(rs.getInt("breed_id"));
+				b.setBreed(rs.getString("breed"));
+				
+				c.setBreed(b); 
+				
+				cats.add(c);
+				
+			}
+			
+			return cats;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();  
+		}
 		return null;
 	}
 

@@ -4,4 +4,15 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <servlet>
+  	<servlet-name>Cats</servlet-name>
+  	<servlet-class>dev.soer.servlets.CatServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Cats</servlet-name>
+  	<url-pattern>/cats</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
