@@ -12,12 +12,14 @@ public interface GenericRepository<T> {
 
 	// read
 	public T getById(Integer id);
+	
+	public T getByName(String n);
 
 	public List<T> getAll();
 
 	// update
-	public boolean update(T t);
+	public void update(T t);
 
 	// delete
-	public boolean delete(T t);
+	public void delete(T t);
 }

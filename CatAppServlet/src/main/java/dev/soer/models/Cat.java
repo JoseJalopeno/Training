@@ -1,11 +1,19 @@
 package dev.soer.models;
 
-public class Cat {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "cats")
+public class Cat {
+	@Id
+	@Column(name = "id", insertable = false, updatable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String name;
 	private Integer age;
 
+	@ManyToOne
+	@JoinColumn(name = "breed")
 	private Breed breed;
 
 	public Cat() {

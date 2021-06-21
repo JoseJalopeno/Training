@@ -1,7 +1,12 @@
 package dev.soer.models;
 
-public class Breed {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "breeds")
+public class Breed {
+	@Id
+	@Column(name = "id", insertable = false, updatable = false)
 	private Integer id;
 	private String breed;
 
