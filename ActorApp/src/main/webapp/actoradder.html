@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Actor Adder</title>
+</head>
+<body>
+
+<h3>Actor Name</h3>
+<input type="text" id="name">
+
+<h3>Actor Worth</h3>
+<input type="number" id="worth">
+
+<br>
+<button onclick="addActor()">Add Actor</button>
+
+</body>
+<script>
+
+function addActor() {
+
+    let aname = document.getElementById("name").value;
+    let aworth = document.getElementById("worth").value;
+
+    //Lets make a JS Object with these variables and any values we will need.
+    //Doing so will make it easy to make a JSON out of these values.
+    let actor = {
+        id: 0,
+        name: aname,
+        worth: aworth
+    }
+
+
+    //Make an AJAX Call
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+
+        if(this.readyState == 4 && this.status == 200) {
+
+            console.log(this.responseText);
+
+        }
+
+    }
+
+    xhttp.open("POST", "http://localhost:8080/ActorApp/addActor.do", true);
+
+    //Set a Request HEader which will indicate to the Server that the Request Body will be JSON
+    xhttp.setRequestHeader('Content-Type','application/json');
+
+    //Send, but now we will pass in the Request Body as a parameter of the function
+    xhttp.send(JSON.stringify(actor));
+
+}
+
+</script>
+</html>

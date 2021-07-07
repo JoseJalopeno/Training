@@ -62,32 +62,32 @@ public class CatDAO implements GenericRepository<Cat> {
 	public List<Cat> getAll() {
 		List<Cat> cats = new ArrayList<Cat>();
 		String sql = "select c.id, c.name, c.age, b.id as breed_id, b.breed from cats c left join breeds b on c.breed = b.id";
-		
+
 		try {
-			
+
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				Cat c = new Cat();
 				c.setId(rs.getInt("id"));
 				c.setName(rs.getString("name"));
 				c.setAge(rs.getInt("age"));
-				
+
 				Breed b = new Breed();
 				b.setId(rs.getInt("breed_id"));
 				b.setBreed(rs.getString("breed"));
-				
-				c.setBreed(b); 
-				
+
+				c.setBreed(b);
+
 				cats.add(c);
-				
+
 			}
-			
+
 			return cats;
-			
+
 		} catch (SQLException e) {
-			e.printStackTrace();  
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -104,4 +104,9 @@ public class CatDAO implements GenericRepository<Cat> {
 		return false;
 	}
 
+	@Override
+	public Cat getByName(String n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

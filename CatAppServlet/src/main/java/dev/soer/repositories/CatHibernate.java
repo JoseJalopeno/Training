@@ -9,7 +9,7 @@ import org.hibernate.*;
 
 import dev.soer.models.Cat;
 import dev.soer.utils.HibernateUtil;
-
+@Repository
 public class CatHibernate implements GenericRepository<Cat>{
 
 	
